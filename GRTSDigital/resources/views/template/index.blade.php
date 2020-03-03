@@ -59,7 +59,7 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="active">
-            <a href="./dashboard.html">
+            <a href="{{route('home')}}">
               <i class="nc-icon nc-tile-56"></i>
               <p>Home</p>
             </a>
@@ -76,10 +76,10 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Usuários</p>
             </a>
           </li>
-          <li class="active-pro">
-            <a href="">
+          <li class="active-pro" >
+            <a >
               <i class="nc-icon nc-spaceship"></i>
-              <p>O céu é o limite</p>
+              <p style="font-size: 8px">O céu não é o limite, sua mente é!</p>
             </a>
           </li>
         </ul>
@@ -97,7 +97,7 @@ The above copyright notice and this permission notice shall be included in all c
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Paper Dashboard 2</a>
+            <a class="navbar-brand">Sistema interno</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -109,7 +109,7 @@ The above copyright notice and this permission notice shall be included in all c
             <ul class="navbar-nav">
               
               <li class="nav-item">
-                <a class="nav-link btn-rotate" href="#pablo">
+                <a class="nav-link btn-rotate" href="{{route('logout')}}">
                   <i class="nc-icon nc-button-power"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
