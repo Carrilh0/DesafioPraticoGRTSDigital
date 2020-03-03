@@ -14,8 +14,11 @@ class CreateTelefonesTable extends Migration
     public function up()
     {
         Schema::create('telefones', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('numero');
             $table->timestamps();
+
+            $table->engine = 'InnoDB';	
         });
     }
 

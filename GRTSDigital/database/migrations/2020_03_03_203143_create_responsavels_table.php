@@ -14,7 +14,9 @@ class CreateResponsavelsTable extends Migration
     public function up()
     {
         Schema::create('responsavels', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('nome');
+            $table->string('email');
             $table->timestamps();
         });
     }

@@ -14,7 +14,19 @@ class CreateEnderecosTable extends Migration
     public function up()
     {
         Schema::create('enderecos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('cep');
+            $table->string('logradouro');
+            $table->string('bairro');
+            $table->string('complemento');
+            $table->string('numero');
+            $table->string('cidade');
+            $table->string('estado');
+            $table->boolean('endereco_principal');
+            $table->Integer('empresa_id')->unsigned();
+            
+            $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
