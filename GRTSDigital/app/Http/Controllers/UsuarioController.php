@@ -47,7 +47,7 @@ class UsuarioController extends Controller
         $dados['password'] = bcrypt($this->request->input('password'));
 
         //Validação
-        $validate = $this->usuarioValidation->validator($dados);
+        $validate = $this->usuarioValidation->validatorUpdate($dados);
         if ($validate->fails()) {
             return redirect()->back()->withErrors($validate)->withInput();
         }

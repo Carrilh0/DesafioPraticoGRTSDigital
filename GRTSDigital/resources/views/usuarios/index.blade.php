@@ -104,7 +104,6 @@
             } else {
                 url = rota;
             }
-            alert(url)
             $("#modalCadastrarEditar").modal('show');
             $('#modal-body').load(url);
       }
