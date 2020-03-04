@@ -22,10 +22,10 @@ class CreateEnderecosTable extends Migration
             $table->string('numero');
             $table->string('cidade');
             $table->string('estado');
-            $table->boolean('endereco_principal');
-            $table->Integer('empresa_id')->unsigned();
+            $table->boolean('principal');
+            $table->Integer('cliente_id')->unsigned();
             
-            $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
 
             $table->timestamps();
         });

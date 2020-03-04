@@ -22,9 +22,11 @@ The above copyright notice and this permission notice shall be included in all c
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png')}}">
   <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png')}}">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Me contrata GRTS Digital ;p
+    GRTS Digital
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -167,6 +169,13 @@ The above copyright notice and this permission notice shall be included in all c
 
     }
   </script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script>
+$(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
 
 </body>
 
