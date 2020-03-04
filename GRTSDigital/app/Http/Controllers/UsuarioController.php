@@ -19,4 +19,13 @@ class UsuarioController extends Controller
         $usuarios = $this->usuarioRepository->usuarios();
         return view('usuarios.index',compact('usuarios'));
     }
+
+    public function formularioCadastrarEditar($id = false)
+    {
+        if($id){
+            $usuarios = $this->usuarioRepository->usuarioPorId($id);
+        }
+
+        return view('usuarios.form',compact('id'));
+    }
 }

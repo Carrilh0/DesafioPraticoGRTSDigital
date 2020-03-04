@@ -6,7 +6,8 @@
           <div class="col-md-12">
             <div class="card">
             <div class="card-header">
-                <h4 class="card-title"> Usuários</h4>
+                <h4 class="card-title pull-left"> Usuários</h4>
+                <button type="button" data-toggle="modal" data-target="#modalCadastrarEditar"  class="btn btn-primary btn-round pull-right">Novo Usuário</button>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -38,4 +39,30 @@
           </div>
 
 </script>
+
+    <!-- Modal para editar moradores -->
+    <div class="modal" id="modalCadastrarEditar"tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Usuário</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="modal-body" class="modal-body">
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+    <!-- Fim do modal de editar moradores -->
+
+    @section('scripts')
+    <script>
+      $( "#modal-body" ).load("formulario/usuario/cadastrar/editar");
+    </script>
+    @endsection
+
 @endsection

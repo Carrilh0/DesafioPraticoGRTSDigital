@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/clientes', 'ClienteController@index')->name('clientes');
+
 Route::get('/usuarios', 'UsuarioController@index')->name('usuarios');
+Route::get('formulario/usuario/cadastrar/editar/{id?}', 'UsuarioController@formularioCadastrarEditar')->name('formulario_usuario_cadastrar_editar');
+
 
 Auth::routes(['register' => false]);
 

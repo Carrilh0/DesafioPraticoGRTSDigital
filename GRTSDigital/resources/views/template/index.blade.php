@@ -176,7 +176,7 @@ $(document).ready( function () {
     $('#table_id').DataTable();
 } );
 </script>
-
+  @yield('scripts');
 </body>
 
 </html>

@@ -1,38 +1,38 @@
 <?php
 
 namespace App\Repositories;
-use App\Models\Empresa;
+use App\Models\Cliente;
 
-class EmpresaRepository {
+class ClienteRepository {
 
-    protected $empresa;
+    protected $cliente;
 
-    function __construct(Empresa $empresa){
-        $this->empresa = $empresa;
+    function __construct(Cliente $cliente){
+        $this->cliente = $cliente;
     }
 
-    public function empresas()
+    public function clientes()
     {
-        return $this->empresa->all();
+        return $this->cliente->all();
     }
 
-    public function empresaPorId($id)
+    public function clientePorId($id)
     {
-        return $this->empresa->find($id);
+        return $this->cliente->find($id);
     }
 
-    public function novoEmpresa($dados)
+    public function novoCliente($dados)
     {
-        return $this->empresa->create($dados);
+        return $this->cliente->create($dados);
     }
     
-    public function editarEmpresa($empresa, array $dados)
+    public function editarCliente($cliente, array $dados)
     {
-        $empresa->update($dados);
+        $cliente->update($dados);
     }
 
-    public function deletarEmpresa($empresa)
+    public function deletarCliente($cliente)
     {
-        $empresa->delete();
+        $cliente->delete();
     }
 }
