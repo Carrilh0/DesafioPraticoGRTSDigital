@@ -22,10 +22,11 @@ class UsuarioController extends Controller
 
     public function formularioCadastrarEditar($id = false)
     {
+        $usuario = null;
         if($id){
-            $usuarios = $this->usuarioRepository->usuarioPorId($id);
+            $usuario = $this->usuarioRepository->usuarioPorId($id);
         }
 
-        return view('usuarios.form',compact('id'));
+        return view('usuarios.form',compact('usuario'));
     }
 }
