@@ -41,6 +41,30 @@ class UsuarioController extends Controller
         return redirect()->back();
     }
 
+    public function editarUsuario()
+    {
+        $dados = $this->request->all();
+        $dados['password'] = bcrypt($this->request->input('password'));
+
+        //Validação
+        $validate = $this->usuarioValidation->validator($dados);
+        if ($validate->fails()) {
+            return redirect()->back()->withErrors($validate)->withInput();
+        }
+        
+        $usuario = $this->usuarioRepository->usuarioPorId($this->request->input('id'));
+        $this->usuarioRepository->editarUsuario($usuario,$dados);
+        return redirect()->back();
+    }
+
+    public function removerUsuario()
+    {   
+        $usuario = $this->usuarioRepository->usuarioPorId($this->request->input('id'));
+        $this->usuarioRepository->deletarUsuario($usuario);
+        
+        return redirect()->back();
+    }
+
     public function formularioCadastrarEditar($id = false)
     {
         $usuario = null;

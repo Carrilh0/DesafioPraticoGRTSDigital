@@ -30,7 +30,7 @@
                             <td>{{$usuario->email}}</td>
                             <td>
                             <button type="button" onclick="modalCadastrarEditar('{{route('formulario_usuario_cadastrar_editar', $usuario->id)}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
-                            <a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                            <button type="button" onclick="confirmarExclusao('{{$usuario->id}}')"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                             </td>
                         @endforeach
                       </tr>
@@ -71,6 +71,30 @@
   </div>
     <!-- Fim do modal de editar moradores -->
 
+    <!-- Modal de deletar -->
+    <div class="modal fade" id="remover" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" data-backdrop="static">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title ">ATENÇÃO</h3>
+                </div>
+                <div class="modal-body">
+
+                    <h4>Tem certeza de que deseja excluir o item selecionado?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                    <form id="excluir" method="POST" action="{{route('remover_usuario')}}">
+                      @csrf
+                    <input name="id" type="input" hidden id="id" class="btn btn-danger" />
+                    <input type="submit" id="href" class="btn btn-danger" value="Sim"/>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
     @section('scripts')
     <script>
       //Abre o modal para cadastrar ou editar, dependendo apenas dos parametros que forem passados
@@ -84,6 +108,11 @@
             $("#modalCadastrarEditar").modal('show');
             $('#modal-body').load(url);
       }
+
+      function confirmarExclusao(id) {
+            $('#id').attr('value', id);
+            $("#remover").modal('show');
+        }
 
     </script>
 

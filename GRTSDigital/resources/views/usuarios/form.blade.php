@@ -1,4 +1,5 @@
-<form method="post" action="{{route('cadastrar_usuario')}}">
+ 
+<form method="post" action="{{isset($usuario) ? route('editar_usuario') : route('cadastrar_usuario')}}">
 @csrf
 
 <input type="text" id="id" name="id" hidden value="{{isset($usuario) ? $usuario->id : '' }}">

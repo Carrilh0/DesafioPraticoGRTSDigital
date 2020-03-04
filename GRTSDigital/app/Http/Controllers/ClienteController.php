@@ -10,4 +10,5 @@ class ClienteController extends Controller
     {
         return view('clientes.index');
     }
+    
 }
