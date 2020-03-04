@@ -57,21 +57,25 @@ The above copyright notice and this permission notice shall be included in all c
         </a>
       </div>
       <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="active">
+        <ul id="navbar" class="nav">
+          
+        <li >
             <a href="{{route('home')}}">
               <i class="nc-icon nc-tile-56"></i>
               <p>Home</p>
             </a>
           </li>
-          <li>
-            <a href="./icons.html">
+          
+          <li> 
+            
+            <a href="{{route('clientes')}}">
               <i class="nc-icon nc-bank"></i>
               <p>Clientes</p>
             </a>
           </li>
+
           <li>
-            <a href="./map.html">
+            <a href="{{route('usuarios')}}">
               <i class="nc-icon nc-single-02"></i>
               <p>Usuários</p>
             </a>
@@ -128,8 +132,7 @@ The above copyright notice and this permission notice shall be included in all c
 
     @yield('conteudo')
     
-    
-
+ 
   <!--   Core JS Files   -->
   <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
   <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
@@ -151,6 +154,22 @@ The above copyright notice and this permission notice shall be included in all c
       demo.initChartsPages();
     });
   </script>
+
+<script>
+    var navbar = $('#navbar li').children();
+    var url_atual = window.location.href;
+    var active = 'active'
+    for(nav of navbar){
+      console.log(nav.closest('li'));
+
+      if(url_atual == nav.href){
+
+        nav.closest('li').classList.add('active');
+      }
+
+    }
+  </script>
+
 </body>
 
 </html>

@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/clientes', 'ClienteController@index')->name('clientes');
+Route::get('/usuarios', 'UsuarioController@index')->name('usuarios');
+
 Auth::routes(['register' => false]);
 
 Route::group([ 'middleware' => 'auth'], function()
