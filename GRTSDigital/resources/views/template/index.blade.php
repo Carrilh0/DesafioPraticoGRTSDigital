@@ -156,15 +156,13 @@ The above copyright notice and this permission notice shall be included in all c
   </script>
 
 <script>
-    var navbar = $('#navbar li').children();
-    var url_atual = window.location.href;
-    var active = 'active'
+    var navbar = $('#navbar li').children(); //Navbar com os itens do meny
+    var url_atual = window.location.href;  
+    
     for(nav of navbar){
-      console.log(nav.closest('li'));
 
-      if(url_atual == nav.href){
-
-        nav.closest('li').classList.add('active');
+      if(url_atual == nav.href){  //Compara a url atual com a url selecionada no menu
+        nav.closest('li').classList.add('active');  //Ativa a a classe "active" para a opção selecionada
       }
 
     }
