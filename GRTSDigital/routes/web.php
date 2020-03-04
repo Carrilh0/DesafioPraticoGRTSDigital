@@ -18,6 +18,7 @@ Route::get('/clientes', 'ClienteController@index')->name('clientes');
 
 Route::get('/usuarios', 'UsuarioController@index')->name('usuarios');
 Route::get('formulario/usuario/cadastrar/editar/{id?}', 'UsuarioController@formularioCadastrarEditar')->name('formulario_usuario_cadastrar_editar');
+Route::post('cadastrar/usuario','UsuarioController@cadastrarUsuario')->name('cadastrar_usuario');
 
 
 Auth::routes(['register' => false]);

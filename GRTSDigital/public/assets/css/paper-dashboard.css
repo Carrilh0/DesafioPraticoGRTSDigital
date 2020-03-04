@@ -947,7 +947,7 @@ fieldset[disabled] .btn-warning.active {
 }
 
 .btn-danger {
-  background-color: #04C9FF;
+  background-color: rgb(255, 81, 0);
   color: #FFFFFF;
 }
 
