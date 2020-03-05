@@ -2,6 +2,16 @@
 
 @section('conteudo')
 <div class="content">
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" style="color:black!important">&times;</a>
+      <ul style="padding-bottom:0;margin-bottom:0">
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif 
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -27,18 +37,19 @@
                       </th>
                     </thead>
                     <tbody>
-                      <tr>
+                      
                         @foreach($clientes as $cliente)
+                        <tr>
                             <td>{{$cliente->nome}}</td>
                             <td>{{$cliente->cnpj}}</td>
                             <td>{{$cliente->responsavel->nome}}</td>
                             <td>
                             <a href='' class="btn btn-sm btn-warning"><i class="fas fa-info"></i></a>
-                            <button type="button" onclick="modalCadastrarEditar('{{route('formulario_usuario_cadastrar_editar', $cliente->id)}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
+                            <button type="button" onclick="modalCadastrarEditar('{{route('formulario_cliente_cadastrar_editar', $cliente->id)}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
                             <button type="button" onclick="confirmarExclusao('{{$cliente->id}}')"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                             </td>
+                        </tr>
                         @endforeach
-                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -57,17 +68,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div> 
-        @if ($errors->any())
-          <div class="alert alert-danger">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close" style="color:black!important">&times;</a>
-              <ul style="padding-bottom:0;margin-bottom:0">
-                  @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                  @endforeach
-              </ul>
-          </div>
-        @endif     
+        </div>      
       <div id="modal-body" class="modal-body">
       
       </div>       
@@ -90,7 +91,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                    <form id="excluir" method="POST" action="{{route('remover_usuario')}}">
+                    <form id="excluir" method="POST" action="{{route('remover_cliente')}}">
                       @csrf
                     <input name="id" type="input" hidden id="id" class="btn btn-danger" />
                     <input type="submit" id="href" class="btn btn-danger" value="Sim"/>
@@ -119,14 +120,6 @@
         }
 
     </script>
-
-    @if(count($errors) > 0)
-    <script>
-    $(function() {
-        $('#modalCadastrarEditar').modal('show');
-    });
-    </script>
-    @endif
 
     @endsection
 

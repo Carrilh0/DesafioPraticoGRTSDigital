@@ -2,6 +2,16 @@
 
 @section('conteudo')
 <div class="content">
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" style="color:black!important">&times;</a>
+      <ul style="padding-bottom:0;margin-bottom:0">
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif     
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -24,16 +34,16 @@
                       </th>
                     </thead>
                     <tbody>
-                      <tr>
                         @foreach($usuarios as $usuario)
+                        <tr>
                             <td>{{$usuario->nome}}</td>
                             <td>{{$usuario->email}}</td>
                             <td>
                             <button type="button" onclick="modalCadastrarEditar('{{route('formulario_usuario_cadastrar_editar', $usuario->id)}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
                             <button type="button" onclick="confirmarExclusao('{{$usuario->id}}')"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                             </td>
+                        </tr>
                         @endforeach
-                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -53,16 +63,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div> 
-        @if ($errors->any())
-          <div class="alert alert-danger">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close" style="color:black!important">&times;</a>
-              <ul style="padding-bottom:0;margin-bottom:0">
-                  @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                  @endforeach
-              </ul>
-          </div>
-        @endif     
+       
       <div id="modal-body" class="modal-body">
       
       </div>       
@@ -114,14 +115,6 @@
         }
 
     </script>
-
-    @if(count($errors) > 0)
-    <script>
-    $(function() {
-        $('#modalCadastrarEditar').modal('show');
-    });
-    </script>
-    @endif
 
     @endsection
 

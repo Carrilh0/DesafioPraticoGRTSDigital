@@ -29,7 +29,7 @@ Route::post('remover/usuario','UsuarioController@removerUsuario')->name('remover
 
 
 Auth::routes(['register' => false]);
-
+Route::get('/logout', 'Auth\LoginController@logout');
 Route::group([ 'middleware' => 'auth'], function()
 {
 

@@ -31,13 +31,13 @@ class UsuarioController extends Controller
     public function cadastrarUsuario()
     {
         $dados = $this->request->all();
-        $dados['password'] = bcrypt($this->request->input('password'));
-        
+
         //Validação
         $validate = $this->usuarioValidation->validator($dados);
         if ($validate->fails()) {
             return redirect()->back()->withErrors($validate)->withInput();
         }
+        $dados['password'] = bcrypt($this->request->input('password'));
 
         $this->usuarioRepository->novoUsuario($dados);
         return redirect()->back();
@@ -46,14 +46,14 @@ class UsuarioController extends Controller
     public function editarUsuario()
     {
         $dados = $this->request->all();
-        $dados['password'] = bcrypt($this->request->input('password'));
 
         //Validação
         $validate = $this->usuarioValidation->validatorUpdate($dados);
         if ($validate->fails()) {
             return redirect()->back()->withErrors($validate)->withInput();
         }
-        
+        $dados['password'] = bcrypt($this->request->input('password'));
+
         $usuario = $this->usuarioRepository->usuarioPorId($this->request->input('id'));
         $this->usuarioRepository->editarUsuario($usuario,$dados);
         return redirect()->back();

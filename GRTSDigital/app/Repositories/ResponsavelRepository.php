@@ -1,38 +1,38 @@
 <?php
 
 namespace App\Repositories;
-use App\Models\Reponsavel;
+use App\Models\Responsavel;
 
 class ResponsavelRepository {
 
-    protected $reponsavel;
+    protected $responsavel;
 
-    function __construct(Reponsavel $reponsavel){
-        $this->reponsavel = $reponsavel;
+    function __construct(Responsavel $responsavel){
+        $this->responsavel = $responsavel;
     }
 
-    public function reponsavels()
+    public function responsaveis()
     {
-        return $this->reponsavel->all();
+        return $this->responsavel->all();
     }
 
-    public function reponsavelPorId($id)
+    public function responsavelPorId($id)
     {
-        return $this->reponsavel->find($id);
+        return $this->responsavel->find($id);
     }
 
-    public function novoReponsavel($dados)
+    public function novoResponsavel($dados)
     {
-        return $this->reponsavel->create($dados);
+        return $this->responsavel->create($dados);
     }
     
-    public function editarReponsavel($reponsavel,array $dados)
+    public function editarResponsavel($responsavel,array $dados)
     {
-        $reponsavel->update($dados);
+        $responsavel->update($dados);
     }
 
-    public function deletarReponsavel($reponsavel)
+    public function deletarResponsavel($responsavel)
     {
-        $reponsavel->delete();
+        $responsavel->delete();
     }
 }

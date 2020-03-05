@@ -34,5 +34,6 @@ class ClienteRepository {
     public function deletarCliente($cliente)
     {
         $cliente->delete();
+        $cliente->responsavel()->delete();
     }
 }

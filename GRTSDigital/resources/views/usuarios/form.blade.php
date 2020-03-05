@@ -7,7 +7,7 @@
     <div class="col-md-12">
         <div class="form-group">
             <label>Nome</label>
-            <input type="text" id="nome" name="nome" class="form-control" placeholder="Insira o seu nome" value="{{isset($usuario) ? $usuario->nome :  ''}}">
+            <input type="text" id="nome" name="nome" class="form-control" placeholder="Insira o seu nome" value="{{isset($usuario) ? $usuario->nome :  ''}}" required>
         </div>
     </div>
 </div>
@@ -16,7 +16,7 @@
     <div class="col-md-12">
         <div class="form-group">
             <label>Email</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="Insira seu email" value="{{isset($usuario) ? $usuario->email : ''}}">
+            <input type="email" id="email" name="email" class="form-control" placeholder="Insira seu email" value="{{isset($usuario) ? $usuario->email : ''}}"> required
         </div>
     </div>
 </div>
@@ -25,7 +25,7 @@
     <div class="col-md-12">
         <div class="form-group">
             <label>Senha</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Insira sua senha" value="">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Insira sua senha" value="" required>
         </div>
     </div>
 </div>
