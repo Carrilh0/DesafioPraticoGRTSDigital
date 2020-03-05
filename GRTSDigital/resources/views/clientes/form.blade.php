@@ -100,7 +100,6 @@
             method: "GET",
             url: "http://viacep.com.br/ws/"+cep+"/json/",
             success: function (endereco){
-                console.log(endereco);
                 $('#estado').val(endereco.uf)
                 $('#cidade').val(endereco.localidade)
                 $('#bairro').val(endereco.bairro)

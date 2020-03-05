@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    protected $fillable = ['nome','cnpj','email','responsavel_id'];
+    protected $fillable = [
+        'nome',
+        'cnpj',
+        'email',
+        'responsavel_id'
+    ];
 
     public function responsavel()
     {
