@@ -28,7 +28,7 @@ class ClienteController extends Controller
     public function cadastrarCliente()
     {
         $dados = $this->request->all();
-        
+        dd($dados);
         //Validação
         $validate = $this->ClienteValidation->validator($dados);
         if ($validate->fails()) {

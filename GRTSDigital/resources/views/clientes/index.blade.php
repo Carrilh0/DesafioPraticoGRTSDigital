@@ -7,7 +7,7 @@
             <div class="card">
             <div class="card-header">
                 <h4 class="card-title pull-left"> Clientes</h4>
-                <button type="button" onclick="modalCadastrarEditar('{{route('formulario_usuario_cadastrar_editar')}}')" class="btn btn-primary btn-round pull-right">Novo Cliente</button>
+                <button type="button" onclick="modalCadastrarEditar('{{route('formulario_cliente_cadastrar_editar')}}')" class="btn btn-primary btn-round pull-right">Novo Cliente</button>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
