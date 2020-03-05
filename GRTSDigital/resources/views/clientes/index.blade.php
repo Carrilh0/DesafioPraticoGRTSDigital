@@ -44,7 +44,7 @@
                             <td>{{$cliente->cnpj}}</td>
                             <td>{{$cliente->responsavel->nome}}</td>
                             <td>
-                            <a href='' class="btn btn-sm btn-warning"><i class="fas fa-info"></i></a>
+                            <a href="{{route('cliente', $cliente->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-info"></i></a>
                             <button type="button" onclick="modalCadastrarEditar('{{route('formulario_cliente_cadastrar_editar', $cliente->id)}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
                             <button type="button" onclick="confirmarExclusao('{{$cliente->id}}')"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                             </td>

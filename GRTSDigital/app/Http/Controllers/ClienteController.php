@@ -37,6 +37,13 @@ class ClienteController extends Controller
         return view('clientes.index',compact('clientes'));
     }
 
+    public function cliente($id)
+    {
+        $cliente = $this->clienteRepository->clientePorId($id);
+
+        return view('clientes.cliente',compact('cliente'));
+    }
+
     public function cadastrarCliente()
     {
         $todosOsDados = $this->request->all();
