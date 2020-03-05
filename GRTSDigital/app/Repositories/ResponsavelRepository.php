@@ -3,7 +3,7 @@
 namespace App\Repositories;
 use App\Models\Reponsavel;
 
-class ReponsavelRepository {
+class ResponsavelRepository {
 
     protected $reponsavel;
 

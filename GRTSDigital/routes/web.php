@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/clientes', 'ClienteController@index')->name('clientes');
+Route::get('formulario/cliente/cadastrar/editar/{id?}', 'ClienteController@formularioCadastrarEditar')->name('formulario_cliente_cadastrar_editar');
+Route::post('cadastrar/cliente','ClienteController@cadastrarCliente')->name('cadastrar_cliente');
+Route::post('editar/cliente','ClienteController@editarCliente')->name('editar_cliente');
+Route::post('remover/cliente','ClienteController@removerCliente')->name('remover_cliente');
+
 
 Route::get('/usuarios', 'UsuarioController@index')->name('usuarios');
 Route::get('formulario/usuario/cadastrar/editar/{id?}', 'UsuarioController@formularioCadastrarEditar')->name('formulario_usuario_cadastrar_editar');

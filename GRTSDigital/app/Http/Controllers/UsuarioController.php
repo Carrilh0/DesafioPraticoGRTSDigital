@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\UsuarioRepository;
+use App\Repositories\ResponsavelRepository;
+use App\Repositories\EnderecoRepository;
 use App\RequestsValidation\UsuarioValidation;
 
 
