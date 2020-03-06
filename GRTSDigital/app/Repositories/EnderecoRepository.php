@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 use App\Models\Endereco;
+use Auth;
 
 class EnderecoRepository {
 
@@ -21,8 +22,20 @@ class EnderecoRepository {
         return $this->endereco->find($id);
     }
 
+    public function enderecosAleternativos($id)
+    {
+        return $this->endereco->where('principal',0)->where('cliente_id', $id)->get();
+    }
+    public function novoEnderecoAleternativos($dados)
+    {
+        $dados['cliente_id'] = Auth()->user()->id;
+        $dados['principal'] = 0;
+        return $this->endereco->create($dados);    }
+
     public function novoEndereco($dados)
     {
+        $dados['cliente_id'] = Auth()->user()->id;
+        $dados['principal'] = 1;
         return $this->endereco->create($dados);
     }
     

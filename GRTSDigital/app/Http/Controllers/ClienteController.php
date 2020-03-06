@@ -40,8 +40,9 @@ class ClienteController extends Controller
     public function cliente($id)
     {
         $cliente = $this->clienteRepository->clientePorId($id);
+        $enderecos = $this->enderecoRepository->enderecosAleternativos($id);
 
-        return view('clientes.cliente',compact('cliente'));
+        return view('clientes.cliente',compact('cliente','enderecos'));
     }
 
     public function cadastrarCliente()
@@ -65,7 +66,6 @@ class ClienteController extends Controller
         $cliente = $this->clienteRepository->novoCliente($dadosCliente);
         
         $dadosEndereco['cliente_id'] = $cliente->id;
-        $dadosEndereco['principal'] = 1;
         $this->enderecoRepository->novoEndereco($dadosEndereco);
 
         return redirect()->back();
@@ -88,7 +88,6 @@ class ClienteController extends Controller
         $responsavel = $this->responsavelRepository->responsavelPorId($dadosResponsavel['idResponsavel']);
         $this->responsavelRepository->editarResponsavel($responsavel,$dadosResponsavel);
 
-        $dadosCliente['user_id'] = Auth::user()->id;
         $cliente = $this->clienteRepository->clientePorId($dadosCliente['idCliente']);
         $this->clienteRepository->editarCliente($cliente,$dadosCliente);
         
@@ -106,6 +105,20 @@ class ClienteController extends Controller
         return redirect()->back();
     }
 
+    public function cadastrarEndereco()
+    {
+        $dados = $this->request->all();
+
+        $validate = $this->clienteValidation->validatorEndereco($dados);
+        if ($validate->fails()) {
+            return redirect()->back()->withErrors($validate)->withInput();
+        }
+
+        $this->enderecoRepository->novoEnderecoAleternativos($dados);
+
+        return redirect()->back();
+    }
+
     public function formularioCadastrarEditar($id = false)
     {
         $cliente = null;
@@ -113,6 +126,10 @@ class ClienteController extends Controller
             $cliente = $this->clienteRepository->clientePorId($id);
         }
         return view('clientes.form',compact('cliente'));
+    }
+    public function formularioEndereco()
+    {
+        return view('clientes.enderecoForm');
     }
     
 }
