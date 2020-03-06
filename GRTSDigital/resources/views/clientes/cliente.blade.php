@@ -17,7 +17,7 @@
             <div class="card">
             <div class="card-header">
                 <h4 class="card-title pull-left"> Dados do cliente {{$cliente->nome}}</h4>
-                <button type="button" onclick="novoEndereco('{{route('formulario_endereco')}}')" class="btn btn-primary btn-round pull-right">Novo Endereço Alternativo</button>
+                <button type="button" onclick="novoEndereco('{{route('formulario_endereco',$cliente->id)}}')" class="btn btn-primary btn-round pull-right">Novo Endereço Alternativo</button>
               </div>
               <div class="card-body">
                 <div class="table-responsive">

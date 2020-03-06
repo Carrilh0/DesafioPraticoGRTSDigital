@@ -28,13 +28,11 @@ class EnderecoRepository {
     }
     public function novoEnderecoAleternativos($dados)
     {
-        $dados['cliente_id'] = Auth()->user()->id;
         $dados['principal'] = 0;
         return $this->endereco->create($dados);    }
 
     public function novoEndereco($dados)
     {
-        $dados['cliente_id'] = Auth()->user()->id;
         $dados['principal'] = 1;
         return $this->endereco->create($dados);
     }

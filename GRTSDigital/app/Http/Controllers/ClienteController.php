@@ -127,9 +127,9 @@ class ClienteController extends Controller
         }
         return view('clientes.form',compact('cliente'));
     }
-    public function formularioEndereco()
+    public function formularioEndereco($clienteId)
     {
-        return view('clientes.enderecoForm');
+        return view('clientes.enderecoForm',compact('clienteId'));
     }
     
 }

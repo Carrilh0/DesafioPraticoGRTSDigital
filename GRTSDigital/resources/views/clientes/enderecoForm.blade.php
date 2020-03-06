@@ -1,6 +1,7 @@
 
 <form method="post" action="{{route('cadastrar_endereco')}}">
     @csrf
+    <input type="text" id="cliente_id" name="cliente_id" value="{{$clienteId}}" hidden>
 
     <div class="row">
         <div style="margin-top: 10px"class="col-md-12">
