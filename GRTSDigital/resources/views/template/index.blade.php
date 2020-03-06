@@ -46,12 +46,12 @@ The above copyright notice and this permission notice shall be included in all c
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="" class="simple-text logo-mini">
+        <a href="{{route('home')}}" class="simple-text logo-mini">
           <div class="logo-image-small">
             <img src="{{asset('assets/img/logo-small.png')}}">
           </div>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="{{route('home')}}" class="simple-text logo-normal">
         GRTS Digital
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
