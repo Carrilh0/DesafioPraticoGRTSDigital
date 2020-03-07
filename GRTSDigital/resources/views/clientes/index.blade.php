@@ -105,13 +105,13 @@
     <script>
       //Abre o modal para cadastrar ou editar, dependendo apenas dos parametros que forem passados
       function modalCadastrarEditar(rota, Id = false) {
-        if (Id) {
-                url = rota + "/" + Id
-            } else {
-                url = rota;
-            }
-            $("#modalCadastrarEditar").modal('show');
-            $('#modal-body').load(url);
+        if(Id){
+            url = rota + "/" + Id
+        }else {
+            url = rota;
+        }
+        $("#modalCadastrarEditar").modal('show');
+        $('#modal-body').load(url);
       }
 
       function confirmarExclusao(id) {

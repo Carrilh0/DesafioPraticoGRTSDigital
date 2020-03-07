@@ -107,7 +107,6 @@
 
 <form>
 
-<script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
     
     $('#cep').focusout(function(){
