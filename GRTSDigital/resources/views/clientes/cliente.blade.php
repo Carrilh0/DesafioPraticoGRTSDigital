@@ -55,7 +55,7 @@
       </div>
       <div class="card-body">
         <div class="table-responsive">
-            <table class="table">
+            <table id="table_id" class="table">
                 <thead>
                     <th>Cidade</th>
                     <th>Estado</th>
@@ -77,9 +77,11 @@
                         <td>{{$endereco->principal ? 'Sim' : 'Não'}}</td>
                         <td>
                             @if($endereco->principal)                             
+                              <button type="button" onclick="maps('{{$endereco->cep}}')" class="btn btn-sm btn-warning"><i class="fas fa-map-marked-alt"></i></button>
                               <button type="button" onclick="novoEndereco('{{route('formulario_endereco',$endereco->id)}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
                               <button type="button" disabled class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                             @else 
+                              <button type="button" onclick="maps('{{$endereco->cep}}')" class="btn btn-sm btn-warning"><i class="fas fa-map-marked-alt"></i></button>
                               <button type="button" onclick="novoEndereco('{{route('formulario_endereco',$endereco->id)}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
                               <button type="button" onclick="confirmarExclusao('{{$endereco->id}}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                             @endif
@@ -95,6 +97,24 @@
 </div>
 
 </script>
+
+<!-- Modal para google maps -->
+<div class="modal" id="maps"tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Endereço no mapa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>      
+      <div id="map-body" class="modal-body">
+      
+    </div>       
+      </div>
+    </div>
+  </div>
+<!-- Fim do Modal para google maps -->
 
 <!-- Modal para cadastrar moradores -->
   <div class="modal" id="modalEndereco"tabindex="-1" role="dialog">
@@ -142,6 +162,12 @@
     @section('scripts')
     <script>
       //Abre o modal para cadastrar ou editar, dependendo apenas dos parametros que forem passados
+      function maps(cep)
+      {
+        $('#map-body').append(`<iframe style="width: 100%;height: 500px;" src="https://www.google.com.br/maps?q=${cep},%20Brasil&output=embed"> </iframe>`)
+        $("#maps").modal('show');
+      }
+      
       function novoEndereco(rota, id) {
         if(id){
             var url = rota + "/" + id
