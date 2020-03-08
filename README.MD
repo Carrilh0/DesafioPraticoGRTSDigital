@@ -1,5 +1,7 @@
 # Desafio prático para a vaga de estágio GRTS Digital
 
+Servidor: http://grtsdigital.duckdns.org/
+
 ##### Usuário padrão:
 E-mail: adm@adm  
 Senha: 12345678
