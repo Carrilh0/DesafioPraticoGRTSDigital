@@ -93,8 +93,8 @@
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                     <form id="excluir" method="POST" action="{{route('remover_cliente')}}">
                       @csrf
-                    <input name="id" type="input" hidden id="id" class="btn btn-danger" />
-                    <input type="submit" id="href" class="btn btn-danger" value="Sim"/>
+                    <input id="id" name="id" type="input" hidden />
+                    <input type="submit" class="btn btn-danger" value="Sim"/>
                     </form>
                 </div>
 

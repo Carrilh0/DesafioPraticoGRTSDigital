@@ -40,7 +40,7 @@ class ClienteController extends Controller
     public function cliente($id)
     {
         $cliente = $this->clienteRepository->clientePorId($id);
-        $enderecos = $this->enderecoRepository->enderecosAleternativos($id);
+        $enderecos = $this->enderecoRepository->enderecosPorIdCliente($id);
 
         return view('clientes.cliente',compact('cliente','enderecos'));
     }
@@ -118,6 +118,27 @@ class ClienteController extends Controller
 
         return redirect()->back();
     }
+    public function editarEndereco()
+    {
+        $dados = $this->request->all();
+
+        $validate = $this->clienteValidation->validatorEndereco($dados);
+        if ($validate->fails()) {
+            return redirect()->back()->withErrors($validate)->withInput();
+        }
+
+        $endereco = $this->enderecoRepository->enderecoPorId($dados['id']);
+        $this->enderecoRepository->editarEndereco($endereco,$dados);
+
+        return redirect()->back();
+    }
+    public function removerEndereco()
+    {
+        $endereco = $this->enderecoRepository->enderecoPorId($this->request->input('id'));
+        $this->enderecoRepository->deletarEndereco($endereco);
+
+        return redirect()->back();
+    }
 
     public function formularioCadastrarEditar($id = false)
     {
@@ -127,9 +148,14 @@ class ClienteController extends Controller
         }
         return view('clientes.form',compact('cliente'));
     }
-    public function formularioEndereco($clienteId)
+
+    public function formularioEndereco($enderecoId = false)
     {
-        return view('clientes.enderecoForm',compact('clienteId'));
+        $endereco = null;
+        if ($enderecoId){
+            $endereco = $this->enderecoRepository->enderecoPorId($enderecoId);
+        }
+        return view('clientes.enderecoForm',compact('endereco'));
     }
     
 }

@@ -1,7 +1,7 @@
 
-<form method="post" action="{{route('cadastrar_endereco')}}">
+<form method="post" action="{{isset($endereco) ? route('editar_endereco') : route('cadastrar_endereco')}}">
     @csrf
-    <input type="text" id="cliente_id" name="cliente_id" value="{{$clienteId}}" hidden>
+    <input type="text" id="id" name="id" value="{{isset($endereco) ? $endereco->id : ''}}" hidden>
 
     <div class="row">
         <div style="margin-top: 10px"class="col-md-12">
@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label>CEP</label>
-                <input type="text" id="cep" name="cep" class="form-control" placeholder="00.000-00"
+                <input type="text" id="cep" name="cep" value="{{isset($endereco) ? $endereco->cep : ''}}" class="form-control" placeholder="00.000-00"
                      required>
             </div>
         </div>
@@ -17,7 +17,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label>Estado</label>
-                <input type="text" id="estado" name="estado" class="form-control"
+                <input type="text" id="estado" value="{{isset($endereco) ? $endereco->estado : ''}}" name="estado" class="form-control"
                      required>
             </div>
         </div>
@@ -25,28 +25,28 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label>Cidade</label>
-                <input type="text" id="cidade" name="cidade" class="form-control"
+                <input type="text" id="cidade" value="{{isset($endereco) ? $endereco->cidade : ''}}" name="cidade" class="form-control"
                      required>
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label>Bairro</label>
-                <input type="text" id="bairro" name="bairro" class="form-control"
+                <input type="text" id="bairro" value="{{isset($endereco) ? $endereco->bairro : ''}} " name="bairro" class="form-control"
                      required>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label>Logadouro</label>
-                <input type="text" id="logradouro" name="logradouro" class="form-control"
+                <input type="text" id="logradouro" value="{{isset($endereco) ? $endereco->logradouro : ''}}" name="logradouro" class="form-control"
                   required>
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label>Complemento</label>
-                <input type="text" id="complemento" name="complemento" class="form-control"
+                <input type="text" id="complemento" value="{{isset($endereco) ? $endereco->complemento : ''}}" name="complemento" class="form-control"
                     required>
             </div>
         </div>
@@ -56,7 +56,7 @@
         <div class="col-md-2">
             <div class="form-group">
                 <label>Nº</label>
-                <input type="text" id="numero" name="numero" class="form-control"
+                <input type="text" id="numero" name="numero" value="{{isset($endereco) ? $endereco->numero : ''}}" class="form-control"
                     >
             </div>
         </div>
@@ -68,7 +68,6 @@
 
 <form>
 
-<script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
 <script>
     
     $('#cep').focusout(function(){

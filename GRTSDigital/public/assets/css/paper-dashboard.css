@@ -995,8 +995,8 @@ fieldset[disabled] .btn-danger:focus,
 fieldset[disabled] .btn-danger.focus,
 fieldset[disabled] .btn-danger:active,
 fieldset[disabled] .btn-danger.active {
-  background-color: #04C9FF;
-  border-color: #04C9FF;
+  background-color: #eb6532;
+  border-color: #eb6532;
 }
 
 .btn-danger.btn-simple {

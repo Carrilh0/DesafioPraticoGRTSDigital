@@ -12,6 +12,11 @@ class EnderecoRepository {
         $this->endereco = $endereco;
     }
 
+    public function enderecosPorIdCliente($id)
+    {
+        return $this->endereco->where('cliente_id', $id)->get();
+    }
+
     public function enderecos()
     {
         return $this->endereco->all();
