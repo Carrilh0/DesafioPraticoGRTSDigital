@@ -40,6 +40,7 @@ The above copyright notice and this permission notice shall be included in all c
 </head>
 
 <body class="">
+@auth
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <!--
@@ -131,7 +132,7 @@ The above copyright notice and this permission notice shall be included in all c
 
     <canvas id="bigDashboardChart"></canvas>
     </div> -->
-
+    @endauth
     @yield('conteudo')
     
  
