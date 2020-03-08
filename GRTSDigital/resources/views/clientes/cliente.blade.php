@@ -166,6 +166,7 @@
       //Abre o modal para cadastrar ou editar, dependendo apenas dos parametros que forem passados
       function maps(cep)
       {
+        $('#map-body iframe').remove()
         $('#map-body').append(`<iframe style="width: 100%;height: 500px;" src="https://www.google.com.br/maps?q=${cep},%20Brasil&output=embed"> </iframe>`)
         $("#maps").modal('show');
       }
