@@ -2,6 +2,7 @@
 <form method="post" action="{{isset($endereco) ? route('editar_endereco') : route('cadastrar_endereco')}}">
     @csrf
     <input type="text" id="id" name="id" value="{{isset($endereco) ? $endereco->id : ''}}" hidden>
+    <input type="text" id="cliente_id" name="cliente_id" value="{{$clienteId}}" hidden>
 
     <div class="row">
         <div style="margin-top: 10px"class="col-md-12">

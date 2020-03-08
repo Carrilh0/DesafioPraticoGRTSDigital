@@ -57,6 +57,7 @@
         <div class="table-responsive">
             <table id="table_id" class="table">
                 <thead>
+                    <th>Cep</th>
                     <th>Cidade</th>
                     <th>Estado</th>
                     <th>Bairro</th>
@@ -68,6 +69,7 @@
                 
                 @foreach ($enderecos as $endereco)
                     <tbody>
+                        <td>{{$endereco->cep}}</td>
                         <td>{{$endereco->cidade}}</td>
                         <td>{{$endereco->estado}}</td>
                         <td>{{$endereco->bairro}}</td>
@@ -78,11 +80,11 @@
                         <td>
                             @if($endereco->principal)                             
                               <button type="button" onclick="maps('{{$endereco->cep}}')" class="btn btn-sm btn-warning"><i class="fas fa-map-marked-alt"></i></button>
-                              <button type="button" onclick="novoEndereco('{{route('formulario_endereco',$endereco->id)}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
+                              <button type="button" onclick="novoEndereco('{{route('formulario_endereco',$cliente->id),$endereco->id}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
                               <button type="button" disabled class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                             @else 
                               <button type="button" onclick="maps('{{$endereco->cep}}')" class="btn btn-sm btn-warning"><i class="fas fa-map-marked-alt"></i></button>
-                              <button type="button" onclick="novoEndereco('{{route('formulario_endereco',$endereco->id)}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
+                              <button type="button" onclick="novoEndereco('{{route('formulario_endereco',$cliente->id),$endereco->id}}')" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></button>
                               <button type="button" onclick="confirmarExclusao('{{$endereco->id}}')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                             @endif
                         </td>
@@ -168,7 +170,7 @@
         $("#maps").modal('show');
       }
       
-      function novoEndereco(rota, id) {
+      function novoEndereco(rota,id) {
         if(id){
             var url = rota + "/" + id
         }else {

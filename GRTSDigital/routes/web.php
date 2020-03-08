@@ -22,7 +22,7 @@ Route::group([ 'middleware' => 'auth'], function()
 
     Route::get('/clientes', 'ClienteController@index')->name('clientes');
     Route::get('/cliente/{id}', 'ClienteController@cliente')->name('cliente');
-    Route::get('formulario/endereco/{clienteId?}', 'ClienteController@formularioEndereco')->name('formulario_endereco');
+    Route::get('formulario/endereco/{clienteId}/{enderecoId?}', 'ClienteController@formularioEndereco')->name('formulario_endereco');
     Route::post('cadastrar/endereco', 'ClienteController@cadastrarEndereco')->name('cadastrar_endereco');
     Route::post('editar/endereco', 'ClienteController@editarEndereco')->name('editar_endereco');
     Route::post('remover/endereco', 'ClienteController@removerEndereco')->name('remover_endereco');

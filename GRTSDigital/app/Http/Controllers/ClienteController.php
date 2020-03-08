@@ -149,13 +149,13 @@ class ClienteController extends Controller
         return view('clientes.form',compact('cliente'));
     }
 
-    public function formularioEndereco($enderecoId = false)
+    public function formularioEndereco($clienteId,$enderecoId = false)
     {
         $endereco = null;
         if ($enderecoId){
             $endereco = $this->enderecoRepository->enderecoPorId($enderecoId);
         }
-        return view('clientes.enderecoForm',compact('endereco'));
+        return view('clientes.enderecoForm',compact('clienteId','endereco'));
     }
     
 }
