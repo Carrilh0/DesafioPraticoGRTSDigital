@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label>CEP</label>
-                <input type="text" id="cep" name="cep" value="{{isset($endereco) ? $endereco->cep : ''}}" class="form-control" placeholder="00.000-00"
+                <input type="text" id="cep" name="cep" value="{{isset($endereco) ? $endereco->cep : ''}}" class="form-control" placeholder="00000-00"
                      required>
             </div>
         </div>
@@ -85,5 +85,7 @@
             }
         })
     });
-    
+    $(document).ready(function(){
+    $('#cep').mask('00000-000');
+    })
 </script>

@@ -16,7 +16,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>CNPJ</label>
-                <input type="text" id="cpnj" name="cnpj" class="form-control" placeholder="CPNPJ do cliente"
+                <input type="text" id="cnpj" name="cnpj" class="form-control" placeholder="CPNPJ do cliente"
                     value="{{isset($cliente) ? $cliente->cnpj : '' }}" required>
             </div>
         </div>
@@ -123,5 +123,11 @@
             }
         })
     });
+
+      $(document).ready(function(){
+    $('#cep').mask('00000-000');
+    $('#cnpj').mask('00.000.000/0000-00');
+    })
+
     
 </script>
